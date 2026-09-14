@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+:root{font-family:'DM Sans',system-ui,sans-serif;color:#17211b;background:#f6f7f3;line-height:1.5;font-synthesis:none}.app{min-height:100vh}.topbar{height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 6vw;background:#fbfcf8;border-bottom:1px solid #e4e8df;position:sticky;top:0;z-index:5}.brand{display:flex;align-items:center;gap:12px}.logo{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:#17211b;color:#d9f99d}.brand strong{display:block;font-family:'Space Grotesk';font-size:19px}.brand small{display:block;color:#7b847c;font-size:11px}.nav{border:0;background:transparent;padding:9px 15px;color:#7b847c;font-weight:600;cursor:pointer}.nav.active{color:#17211b;background:#eef2e8;border-radius:9px}.container{width:min(1120px,88vw);margin:0 auto}.hero{display:grid;grid-template-columns:1fr 1fr;gap:64px;padding:78px 0 58px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.13em;color:#75806f}.hero h1{font:700 clamp(44px,5.3vw,72px)/.98 'Space Grotesk';letter-spacing:-.045em;margin:15px 0 22px}.hero h1 em{font-style:normal;color:#6c8c38}.hero p{max-width:550px;color:#68726a;font-size:16px}.input-card,.claim-card,.score-card{background:#fff;border:1px solid #e2e7de;border-radius:18px;box-shadow:0 15px 40px #1b2a1a0b}.input-card{padding:22px}.input-card label{display:block;font-weight:700;font-size:14px;margin-bottom:12px}.input-card textarea{width:100%;box-sizing:border-box;min-height:190px;resize:vertical;border:1px solid #dfe5da;border-radius:12px;padding:15px;font:15px/1.55 inherit;outline:none;background:#fbfcfa}.input-card textarea:focus{border-color:#93a96c;box-shadow:0 0 0 3px #dff0bd}.input-footer{display:flex;justify-content:space-between;align-items:center;margin-top:14px;color:#929a92;font-size:12px}.primary{display:flex;align-items:center;gap:8px;border:0;border-radius:10px;padding:11px 17px;background:#17211b;color:#fff;font-weight:700;cursor:pointer}.primary:disabled{opacity:.45;cursor:not-allowed}.error{display:flex;gap:9px;align-items:center;padding:13px 16px;background:#fff0ee;color:#a23b32;border:1px solid #f2c8c3;border-radius:12px;margin-bottom:25px}.results{padding-bottom:70px}.result-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:20px}.result-header h2,.page-title h1{font:700 32px 'Space Grotesk';margin:6px 0 0}.badge{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:700}.badge.true{background:#e9f7d7;color:#3d681c}.badge.mixed {color: #8a6a00;background: #fff4cf;}.badge.false{background:#fee6e2;color:#a73b31}.badge.uncertain{background:#f4edd4;color:#856d20}.badge.pending{background:#eef0ef;color:#68716b}.score-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:42px}.score-card{padding:20px}.score-card small{display:block;color:#89928a;font-size:10px;font-weight:700;letter-spacing:.1em}.score-card strong{display:block;font:700 31px 'Space Grotesk';margin:7px 0}.score-card span{color:#7d867f;font-size:12px}.meter{height:6px;background:#edf0ea;border-radius:9px;overflow:hidden}.meter i{display:block;height:100%;background:#89aa4b;border-radius:9px}.claims h3{font:700 21px 'Space Grotesk';margin-bottom:15px}.claim-card{margin-bottom:16px;overflow:hidden}.claim-top{display:flex;gap:18px;padding:22px}.claim-number{font:700 12px 'Space Grotesk';color:#9ca49c;padding-top:3px}.claim-content{flex:1}.claim-text{font-size:16px;font-weight:600;margin:0 0 11px}.claim-meta{display:flex;align-items:center;gap:12px;color:#8a928b;font-size:12px}.evidence-list{border-top:1px solid #edf0ea;background:#fafbf8}.evidence{display:flex;gap:13px;padding:18px 22px;border-bottom:1px solid #edf0ea}.evidence:last-child{border-bottom:0}.evidence-icon{flex:0 0 32px;height:32px;border-radius:9px;background:#edf4e1;color:#66873b;display:grid;place-items:center}.evidence-main{min-width:0;flex:1}.evidence-main a{display:inline-flex;gap:5px;align-items:center;color:#26362a;font-weight:700;text-decoration:none;font-size:13px}.evidence-main a:hover{text-decoration:underline}.source{font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:#8a938b;margin-top:3px}.evidence-main p{font-size:12px;color:#707970;margin:9px 0}.evidence-scores{display:flex;gap:18px;font-size:10px;color:#8b938c}.evidence-scores b{color:#4f5d50}.no-evidence{padding:18px;color:#8a928b;font-size:13px}.history-page{padding:68px 0}.page-title{margin-bottom:28px}.page-title p{color:#778078}.history-list{display:grid;gap:10px}.history-item{display:flex;align-items:center;justify-content:space-between;text-align:left;border:1px solid #e1e6de;background:#fff;border-radius:14px;padding:17px 20px;cursor:pointer}.history-item:hover{border-color:#b9c8a5}.history-item strong{display:block;font-size:14px;max-width:780px}.history-item small{display:block;color:#929991;font-size:11px;margin-top:4px}.empty{text-align:center;padding:70px 20px;color:#8a938b}.empty h3{color:#38433b;margin-bottom:3px}.empty p{margin-top:0}footer{text-align:center;color:#9ba29c;font-size:11px;padding:24px;border-top:1px solid #e5e9e1}@media(max-width:800px){.hero{grid-template-columns:1fr;gap:30px;padding-top:45px}.score-grid{grid-template-columns:1fr}.topbar{padding:0 5vw}.container{width:90vw}.hero h1{font-size:49px}}
+
+
+/* ============================================================
+   EXPLAINABLE VERDICT
+   ============================================================ */
+
+.explanation-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin: 18px 0 28px;
+  padding: 22px;
+  border: 1px solid #dfe5dc;
+  border-radius: 16px;
+  background: #fbfcf9;
+}
+
+.original-text-card {
+  margin: -18px 0 28px;
+  padding: 18px 20px;
+  border: 1px solid #dfe5dc;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.original-text-card p {
+  margin: 8px 0 0;
+  color: #364238;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.explanation-icon {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: #edf5e6;
+}
+
+.explanation-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.explanation-card h3 {
+  margin: 4px 0 8px;
+  font-size: 17px;
+}
+
+.explanation-text {
+  margin: 0;
+  color: #687067;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.evidence-breakdown {
+  margin-top: 20px;
+}
+
+.breakdown-title {
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.evidence-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.evidence-stat {
+  padding: 14px;
+  border: 1px solid #e2e7df;
+  border-radius: 12px;
+  background: white;
+}
+
+.evidence-stat strong {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 3px;
+}
+
+.evidence-stat span {
+  color: #747b73;
+  font-size: 12px;
+}
+
+.strongest-evidence {
+  padding: 16px;
+  border: 1px solid #e2e7df;
+  border-radius: 12px;
+  background: white;
+}
+
+.strongest-evidence-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.strongest-evidence h4 {
+  margin: 0 0 7px;
+  font-size: 14px;
+}
+
+.strongest-evidence p {
+  margin: 0;
+  color: #687067;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.relationship-badge {
+  padding: 5px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  letter-spacing: 0.03em;
+}
+
+.relationship-badge.supports {
+  background: #eaf6e5;
+}
+
+.relationship-badge.contradicts {
+  background: #fbe9e7;
+}
+
+.relationship-badge.unclear {
+  background: #f5f1df;
+}
+
+/* =========================================================
+   EVIDENCE GROUPS
+   ========================================================= */
+
+.evidence-group {
+  margin-bottom: 18px;
+}
+
+.evidence-group-header {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 14px 0 10px;
+  padding: 8px 2px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.evidence-group-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.supports-header .evidence-group-dot {
+  background: #72a94b;
+}
+
+.contradicts-header .evidence-group-dot {
+  background: #d96b62;
+}
+
+.unclear-header .evidence-group-dot {
+  background: #c7a84a;
+}
+
+.evidence-group-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 7px;
+  margin-left: 3px;
+  border-radius: 999px;
+  background: #f1f3ef;
+  font-size: 10px;
+}
+
+.evidence-group .evidence {
+  margin-bottom: 10px;
+}
+
+/* =========================================================
+   EVIDENCE RELATIONSHIP ICONS
+   ========================================================= */
+
+.evidence-icon.supports {
+  background: #eaf6e5;
+}
+
+.evidence-icon.supports svg {
+  color: #5d963b;
+}
+
+.evidence-icon.contradicts {
+  background: #fbe9e7;
+}
+
+.evidence-icon.contradicts svg {
+  color: #c85d54;
+}
+
+.evidence-icon.unclear {
+  background: #f5f1df;
+}
+
+.evidence-icon.unclear svg {
+  color: #a98932;
+}

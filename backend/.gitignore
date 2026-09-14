@@ -1,0 +1,7 @@
+HELP.md
+target/
+.idea/
+*.iml
+.env
+.env.*
+!.env.example
