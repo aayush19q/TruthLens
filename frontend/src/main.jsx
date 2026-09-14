@@ -15,6 +15,8 @@ import {
 } from 'lucide-react'
 import './styles.css'
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL || ''
+
 const verdictMeta = {
   TRUE: {
     label: 'Likely True',
@@ -83,7 +85,7 @@ function App() {
 
   const loadHistory = async () => {
     try {
-      const res = await fetch('/api/verifications')
+      const res = await fetch(`${API_BASE}/api/verifications`)
 
       if (res.ok) {
         setHistory(await res.json())
@@ -105,7 +107,7 @@ function App() {
     setResult(null)
 
     try {
-      const res = await fetch('/api/verifications', {
+      const res = await fetch(`${API_BASE}/api/verifications`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

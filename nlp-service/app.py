@@ -1,4 +1,5 @@
-from fastapi import FastAPI, HTTPException
+import os
+from fastapi import FastAPI
 from pydantic import BaseModel
 from sentence_transformers import SentenceTransformer
 import torch
@@ -22,25 +23,22 @@ MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 
 print("Loading Sentence Transformer model...")
 
-model = SentenceTransformer(
-    MODEL_NAME
-)
-
-print("Sentence Transformer model loaded successfully.")
+try:
+    model = SentenceTransformer(MODEL_NAME)
+    print("Sentence Transformer model loaded successfully.")
+except Exception as e:
+    print(f"Error loading model {MODEL_NAME}: {e}")
+    model = None
 
 
 # ============================================================
-# REQUEST MODEL
+# REQUEST & RESPONSE MODELS
 # ============================================================
 
 class SimilarityRequest(BaseModel):
     text1: str
     text2: str
 
-
-# ============================================================
-# RESPONSE MODEL
-# ============================================================
 
 class SimilarityResponse(BaseModel):
     similarity: float
@@ -54,7 +52,7 @@ class SimilarityResponse(BaseModel):
 @app.get("/health")
 def health():
     return {
-        "status": "UP",
+        "status": "UP" if model is not None else "DOWN",
         "model": MODEL_NAME
     }
 
@@ -72,7 +70,7 @@ def similarity(request: SimilarityRequest):
         text1 = request.text1.strip() if request.text1 else ""
         text2 = request.text2.strip() if request.text2 else ""
 
-        if not text1 or not text2:
+        if not text1 or not text2 or model is None:
             return SimilarityResponse(
                 similarity=0.0,
                 model=MODEL_NAME
@@ -107,8 +105,10 @@ def similarity(request: SimilarityRequest):
 
 if __name__ == "__main__":
     import uvicorn
+    host = os.environ.get("HOST", "0.0.0.0")
+    port = int(os.environ.get("PORT", 8000))
     uvicorn.run(
         app,
-        host="127.0.0.1",
-        port=8000
+        host=host,
+        port=port
     )

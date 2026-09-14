@@ -1,5 +1,6 @@
 package truthlens_backend.service;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;
@@ -14,8 +15,8 @@ import java.util.Map;
 @Service
 public class SemanticSimilarityService {
 
-    private static final String NLP_URL =
-            "http://127.0.0.1:8000/similarity";
+    @Value("${nlp.service.url:http://127.0.0.1:8000/similarity}")
+    private String nlpUrl;
 
     private final ObjectMapper objectMapper =
             new ObjectMapper();
@@ -53,11 +54,6 @@ public class SemanticSimilarityService {
                             )
                     );
 
-            System.out.println(
-                    "Sending NLP request: "
-                            + requestBody
-            );
-
             // ------------------------------------------------
             // Create HTTP request
             // ------------------------------------------------
@@ -66,7 +62,9 @@ public class SemanticSimilarityService {
                     HttpRequest.newBuilder()
                             .uri(
                                     URI.create(
-                                            NLP_URL
+                                            nlpUrl != null && !nlpUrl.isBlank()
+                                                    ? nlpUrl
+                                                    : "http://127.0.0.1:8000/similarity"
                                     )
                             )
                             .version(
@@ -111,11 +109,6 @@ public class SemanticSimilarityService {
                                 + response.statusCode()
                 );
 
-                System.err.println(
-                        "NLP response body: "
-                                + response.body()
-                );
-
                 return 0.0;
             }
 
@@ -132,11 +125,6 @@ public class SemanticSimilarityService {
                     json.path(
                             "similarity"
                     ).asDouble(0.0);
-
-            System.out.println(
-                    "NLP similarity: "
-                            + similarity
-            );
 
             return Math.max(
                     0.0,

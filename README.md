@@ -118,7 +118,7 @@ TruthLens/
 ├── backend/                        # Spring Boot Backend
 │   ├── src/main/java/truthlens_backend/
 │   │   ├── config/                 # Global CorsConfig
-│   │   ├── controller/             # Verification & Evidence REST Controllers
+│   │   ├── controller/             # Verification, Evidence & Health REST Controllers
 │   │   ├── dto/                    # VerificationRequest, ErrorResponse
 │   │   ├── exception/              # GlobalExceptionHandler (@RestControllerAdvice)
 │   │   ├── model/                  # Claim, Evidence, Verification MongoDB Documents
@@ -126,15 +126,23 @@ TruthLens/
 │   │   └── service/                # ClaimExtraction, EvidenceRetrieval, EvidenceAnalysis,
 │   │                               # FactConsistency, SemanticSimilarity, Verdict, Explanation Services
 │   ├── src/test/java/              # Unit & Integration Tests
+│   ├── Dockerfile                  # Backend container image
+│   ├── .dockerignore
 │   ├── pom.xml                     # Maven dependencies
 │   └── .env.example                # Backend environment template
 ├── frontend/                       # React + Vite Frontend
 │   ├── src/                        # UI components & CSS design system
+│   ├── Dockerfile                  # Frontend container image (nginx)
+│   ├── nginx.conf                  # Nginx reverse proxy + SPA config
+│   ├── .dockerignore
 │   ├── package.json
 │   └── vite.config.js
 ├── nlp-service/                    # Python FastAPI Transformer Service
 │   ├── app.py                      # FastAPI app (/health, /similarity)
+│   ├── Dockerfile                  # NLP service container image
+│   ├── .dockerignore
 │   └── requirements.txt
+├── docker-compose.yml              # Full-stack orchestration
 ├── .env.example                    # Root environment template
 └── README.md                       # Comprehensive documentation
 ```
@@ -191,6 +199,49 @@ npm run dev
 
 ---
 
+### Docker Deployment (All Services)
+
+TruthLens can be run as a fully containerized stack using Docker Compose.
+
+**Prerequisites:**
+- Docker 20+ and Docker Compose v2+
+
+**Steps:**
+
+```bash
+# 1. Copy and configure environment variables
+cp .env.example .env
+# Edit .env and set your SERPER_API_KEY
+
+# 2. Build and start all services
+docker-compose up --build
+
+# 3. Access the application
+# Frontend:     http://localhost:8088
+# Backend API:  http://localhost:8088/api/health
+```
+
+**Services started by Docker Compose:**
+
+| Service | Container | Port |
+| :--- | :--- | :--- |
+| React Frontend (nginx) | `truthlens-frontend` | `8088` (host) |
+| Spring Boot Backend | `truthlens-backend` | `8080` (internal) |
+| Python NLP Service | `truthlens-nlp` | `8000` (internal) |
+| MongoDB | `truthlens-mongodb` | `27017` (host) |
+
+**Stop all services:**
+```bash
+docker-compose down
+```
+
+**Stop and remove data volumes:**
+```bash
+docker-compose down -v
+```
+
+---
+
 ## Environment Variables
 
 | Variable | Description | Default |
@@ -198,6 +249,7 @@ npm run dev
 | `SERPER_API_KEY` | Serper.dev Web Search API key | *(empty - evidence search returns empty if unconfigured)* |
 | `MONGODB_URI` | MongoDB connection URI | `mongodb://localhost:27017/truthlens` |
 | `PORT` | Backend server port | `8080` |
+| `NLP_SERVICE_URL` | Python NLP service endpoint | `http://127.0.0.1:8000/similarity` |
 | `CORS_ALLOWED_ORIGINS` | Allowed CORS origins | `http://localhost:5173,http://127.0.0.1:5173` |
 
 ---
