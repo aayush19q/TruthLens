@@ -31,12 +31,13 @@ RUN rm -rf ./*
 # Copy built assets from builder stage
 COPY --from=builder /app/dist .
 
-# Custom nginx config for SPA routing and API proxy
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Copy entrypoint script (generates nginx config dynamically)
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
 
 EXPOSE 80
 
 HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
   CMD wget -qO- http://127.0.0.1/ > /dev/null 2>&1 || exit 1
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["/docker-entrypoint.sh"]
