@@ -465,17 +465,30 @@ cd backend
 
 ## Screenshots
 
-> Screenshots will be added here.
+### 1. Verification Input
+User interface for entering news articles or claim text to initiate automated evidence retrieval and verification.
 
-<!-- 
-Add screenshots of:
-- Verification input page
-- TRUE verdict result
-- FALSE verdict result  
-- MIXED verdict result
-- Claim-by-claim analysis with evidence
-- Verification history page
--->
+<img src="docs/screenshots/01-verification-input.png" alt="Verification Input" width="800" />
+
+### 2. False Claim Detection
+Comprehensive breakdown showing contradictory web evidence, low semantic similarity, and a `FALSE` verdict.
+
+<img src="docs/screenshots/02-false-result.png" alt="False Claim Detection" width="800" />
+
+### 3. True Claim Detection
+Detailed view of a verified true claim with supporting evidence sources, domain reliability scores, and confidence metrics.
+
+<img src="docs/screenshots/03-true-result.png" alt="True Claim Detection" width="800" />
+
+### 4. Mixed Claims Detection
+Multi-claim analysis resulting in an overall `MIXED` verdict when individual claims have differing verification statuses.
+
+<img src="docs/screenshots/04-mixed-result.png" alt="Mixed Claims Detection" width="800" />
+
+### 5. Verification History
+History page showing previously saved verifications from MongoDB Atlas with their verification status.
+
+<img src="docs/screenshots/05-history.png" alt="Verification History" width="800" />
 
 ---
 
